@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do You Love Me? 💕</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- floating background doodles (hearts, stars, sparkles) -->
+    <div class="bg-doodles" id="bgDoodles"></div>
+
+    <!-- ============ SCREEN 1: THE QUESTION ============ -->
+    <section id="screen-question" class="screen active">
+      <div class="card">
+        <p class="tiny-label">♡ a tiny question for you ♡</p>
+
+        <!-- MAIN couple photo -->
+        <div class="photo-frame">
+          <img
+            src="assets/couple-main.png"
+            alt="cute couple illustration"
+            class="couple-photo"
+            id="mainPhoto"
+          />
+        </div>
+
+        <h1 class="heading">Hey you... 🥺💕</h1>
+        <h2 class="question">Do you love me? 💗</h2>
+
+        <div class="button-row">
+          <button id="yesBtn" class="btn btn-yes">YES 💖</button>
+          <button id="noBtn" class="btn btn-no">NO 🙈</button>
+        </div>
+      </div>
+
+      <!-- scattered stickers -->
+      <span class="sticker s1">✦</span>
+      <span class="sticker s2">🌸</span>
+      <span class="sticker s3">☁️</span>
+      <span class="sticker s4">✧</span>
+      <span class="sticker s5">🎀</span>
+      <span class="sticker s6">⭐</span>
+      <span class="sticker s7">♡</span>
+      <span class="sticker s8">💌</span>
+    </section>
+
+    <!-- ============ SCREEN 2: NO PATH (progressive teasing) ============ -->
+    <section id="screen-no" class="screen">
+      <div class="card">
+        <div class="mood-photo-frame">
+          <img
+            src="assets/couple-shy.png"
+            alt="cute couple reacting"
+            class="mood-photo"
+            id="noDoodle"
+          />
+        </div>
+        <h2 class="no-message" id="noMessage">Are you sure? 🥺</h2>
+        <div class="button-row">
+          <button id="yesBtnAgain" class="btn btn-yes">YES 💖</button>
+          <button id="noBtnAgain" class="btn btn-no">Are you sure? 🙈</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 3: YES / SUCCESS ============ -->
+    <section id="screen-yes" class="screen">
+      <div class="card celebrate-card">
+        <!-- happy couple photo -->
+        <div class="mood-photo-frame">
+          <img
+            src="assets/couple-happy.png"
+            alt="happy couple illustration"
+            class="mood-photo bounce-photo"
+            id="hugDoodle"
+          />
+        </div>
+
+        <h1 class="yay-text">YAYYYYY!! 🥹💕</h1>
+        <p class="love-text">I LOVE YOU TOOOO! ❤️</p>
+        <p class="sub-text">You chose the right answer hehe 🤭💕</p>
+        <p class="sub-text">Now come here, you cute idiot 🫶</p>
+
+        <button id="heheBtn" class="btn btn-yes hehe-btn">HEHE 💕</button>
+      </div>
+
+      <!-- confetti / floating hearts container -->
+      <div class="confetti-layer" id="confettiLayer"></div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

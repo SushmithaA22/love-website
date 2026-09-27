@@ -1,0 +1,381 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Comic Sans MS", "Segoe UI", system-ui, sans-serif;
+  background: #fff9f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: #4a3428;
+}
+
+/* soft pastel gradient background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, #ffdde8 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, #dde5c5 0%, transparent 45%), #fff9f0;
+  z-index: -2;
+}
+
+/* ===== SCREENS ===== */
+.screen {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px 20px;
+}
+.screen.active {
+  display: flex;
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #ffffff;
+  border: 3px solid #f8c8d8;
+  border-radius: 32px;
+  max-width: 420px;
+  width: 100%;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(139, 102, 83, 0.15);
+  position: relative;
+  animation: floatCard 4s ease-in-out infinite;
+}
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.tiny-label {
+  font-size: 0.85rem;
+  color: #8b6653;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+/* ===== MAIN PHOTO FRAME (first screen) ===== */
+.photo-frame {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 18px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 4px solid #ffdde8;
+  background: #fff9f0;
+  animation: bounceImg 3s ease-in-out infinite;
+}
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes bounceImg {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+}
+
+/* ===== MOOD PHOTO FRAME (no-screen + yes-screen) ===== */
+.mood-photo-frame {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 20px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 4px solid #ffdde8;
+  background: #fff9f0;
+}
+.mood-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bounce-photo {
+  animation: bounceImg 2.5s ease-in-out infinite;
+}
+
+.heading {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #4a3428;
+}
+.question {
+  font-size: 1.3rem;
+  color: #8b6653;
+  margin-bottom: 24px;
+}
+
+/* ===== BUTTONS ===== */
+.button-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  min-width: 110px;
+}
+.btn-yes {
+  background: #f8c8d8;
+  color: #4a3428;
+  box-shadow: 0 6px 0 #e6a9c0;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+.btn-yes:hover {
+  transform: translateY(-3px);
+}
+.btn-yes:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #e6a9c0;
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.btn-no {
+  background: #dde5c5;
+  color: #4a3428;
+  box-shadow: 0 6px 0 #c2cba3;
+  position: relative;
+}
+.btn-no:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #c2cba3;
+}
+.btn-no.shake {
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px) rotate(-3deg);
+  }
+  75% {
+    transform: translateX(6px) rotate(3deg);
+  }
+}
+
+/* ===== STICKERS (scattered doodles) ===== */
+.sticker {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  animation: floatSticker 5s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+.s1 {
+  top: 8%;
+  left: 10%;
+  animation-delay: 0s;
+  transform: rotate(-10deg);
+}
+.s2 {
+  top: 15%;
+  right: 8%;
+  animation-delay: 0.5s;
+  transform: rotate(8deg);
+}
+.s3 {
+  bottom: 12%;
+  left: 6%;
+  animation-delay: 1s;
+  transform: rotate(-6deg);
+}
+.s4 {
+  top: 70%;
+  right: 10%;
+  animation-delay: 1.5s;
+  transform: rotate(12deg);
+}
+.s5 {
+  bottom: 20%;
+  right: 14%;
+  animation-delay: 2s;
+  transform: rotate(-14deg);
+}
+.s6 {
+  top: 30%;
+  left: 4%;
+  animation-delay: 2.5s;
+  transform: rotate(5deg);
+}
+.s7 {
+  bottom: 8%;
+  left: 40%;
+  animation-delay: 3s;
+  transform: rotate(-8deg);
+}
+.s8 {
+  top: 4%;
+  right: 30%;
+  animation-delay: 3.5s;
+  transform: rotate(10deg);
+}
+
+@keyframes floatSticker {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* ===== NO SCREEN ===== */
+.no-message {
+  font-size: 1.4rem;
+  margin: 20px 0 26px;
+  color: #4a3428;
+}
+
+/* ===== YES / CELEBRATION SCREEN ===== */
+.celebrate-card {
+  animation:
+    floatCard 4s ease-in-out infinite,
+    popIn 0.5s ease;
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.yay-text {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #4a3428;
+}
+.love-text {
+  font-size: 1.3rem;
+  color: #f8c8d8;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.sub-text {
+  font-size: 1rem;
+  color: #8b6653;
+  margin-bottom: 6px;
+}
+.hehe-btn {
+  margin-top: 18px;
+}
+
+/* ===== CONFETTI / FLOATING HEARTS ===== */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+.confetti-piece {
+  position: absolute;
+  bottom: -40px;
+  font-size: 1.4rem;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* background ambient doodles layer */
+.bg-doodles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 18px;
+    border-radius: 26px;
+  }
+  .photo-frame {
+    width: 140px;
+    height: 140px;
+  }
+  .mood-photo-frame {
+    width: 120px;
+    height: 120px;
+  }
+  .heading {
+    font-size: 1.3rem;
+  }
+  .question {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    min-width: 90px;
+  }
+  .sticker {
+    font-size: 1.1rem;
+  }
+}
